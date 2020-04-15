@@ -1,9 +1,17 @@
-Hi, this is my solution to assignment 1 on CS50 course Introduction to Game Development.
+Here's my solution to Assignment 1 of the course.
+The were 3 goals:
 
-The goals for this assignment:
 
-    Randomize the gap between pipes (vertical space), such that they’re no longer hardcoded to 90 pixels.
-    Randomize the interval at which pairs of pipes spawn, such that they’re no longer always 2 seconds apart.
-    When a player enters the ScoreState, award them a “medal” via an image displayed along with the score; this can be any image or any type of medal you choose (e.g., ribbons, actual medals, trophies, etc.), so long as each is different and based on the points they scored that life. Choose 3 different ones, as well as the minimum score needed for each one (though make it fair and not too hard to test :)).
-    Implement a pause feature, such that the user can simply press “P” (or some other key) and pause the state of the game. This pause effect will be slightly fancier than the pause feature we showed in class, though not ultimately that much different. When they pause the game, a simple sound effect should play (I recommend testing out bfxr for this, as seen in Lecture 0!). At the same time this sound effect plays, the music should pause, and once the user presses P again, the gameplay and the music should resume just as they were! To cap it off, display a pause icon in the middle of the screen, nice and large, so as to make it clear the game is paused.
-    
+" -Randomize the gap between pipes (vertical space), such that they’re no longer hardcoded to 90 pixels." For this one, I took the variable GAP_HEIGHT and moved it to PlayState.lua where it's going to be randomized with math.random frame by frame.
+
+"-Randomize the interval at which pairs of pipes spawn, such that they’re no longer always 2 seconds apart." I created a variable called randomSpawn which I am randomizing to later compare the self.timer with it for the spawning of the pipes, self.timer has to be bigger than randomSpawn and randomSpawn has to be bigger than 1 because we don't want the pipes to be drawn right next to each other.
+
+
+
+"-When a player enters the ScoreState, award them a “medal” via an image displayed along with the score; this can be any image or any type of medal you choose"   I created three png's of the medals, gold, silver and bronze. If the user scores 3+, gets the gold medal, if scores 2 gets the silver medal and if scores 1 or less gets the bronze medal.
+
+"-Implement a pause feature (...)" In PlayState I created a condition for detecting is pause is set to true to stop the scrolling and the music or to resume everything if the user presses p again. I also added the png of the pause symbol which is drawn in the render function of PlayState.lua and added the pause.wav sound effect. 
+
+
+
+I used sfxr for creating the sound effect and pixel online app for creating the medals!
